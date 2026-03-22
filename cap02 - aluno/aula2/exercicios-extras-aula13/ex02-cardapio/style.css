@@ -1,0 +1,81 @@
+/*
+  style.css — Exercício 02: Cardápio Seara
+  DAD 2026 · Aula 13 · Germinare TECH
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --seara-laranja: #E8520A;
+  --seara-escuro:  #1C1C1C;
+  --fundo:         #FFF8F5;
+  --borda:         #F0D5C8;
+  --promo-bg:      #FFF3CD;
+  --promo-cor:     #92400E;
+  --texto-med:     #555;
+  --branco:        #FFFFFF;
+}
+
+body { font-family: sans-serif; background: var(--fundo); color: var(--seara-escuro); padding: 2rem; }
+
+#cardapio { max-width: 740px; margin: 0 auto; }
+
+.cardapio-header {
+  background: var(--seara-laranja);
+  color: var(--branco);
+  padding: 1.4rem 1.8rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+.cardapio-header h1 { font-size: 1.5rem; }
+.cardapio-header p  { font-size: 0.88rem; opacity: 0.85; margin-top: 0.25rem; }
+
+.categoria {
+  background: var(--branco);
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.categoria-titulo {
+  background: var(--seara-escuro);
+  color: var(--branco);
+  padding: 0.65rem 1.2rem;
+  font-size: 1rem;
+}
+
+.lista-itens { list-style: none; padding: 0.5rem 0; }
+
+.item-cardapio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.2rem;
+  border-bottom: 1px solid var(--borda);
+  font-size: 0.9rem;
+}
+.item-cardapio:last-child { border-bottom: none; }
+.item-cardapio.promocao   { background: var(--promo-bg); }
+
+.nome-item  { flex: 1; font-weight: 500; }
+.kcal       { color: var(--texto-med); font-size: 0.82rem; min-width: 65px; }
+.preco      { font-weight: 700; color: var(--seara-laranja); min-width: 65px; text-align: right; }
+.tag-promo  {
+  background: var(--seara-laranja);
+  color: var(--branco);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.resumo-box {
+  margin-top: 1rem;
+  background: var(--seara-escuro);
+  color: var(--branco);
+  padding: 1rem 1.4rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}

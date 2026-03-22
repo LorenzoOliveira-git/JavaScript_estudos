@@ -1,0 +1,58 @@
+/*  style.css — Exercício 04: Dashboard J&F  */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --jf-navy:    #0D1B2A;
+  --jf-blue:    #1D6FA4;
+  --jf-gold:    #C9A227;
+  --alta-c:     #15803D;  --alta-bg:  #DCFCE7;
+  --queda-c:    #B91C1C;  --queda-bg: #FEE2E2;
+  --fundo:      #F1F5F9;
+  --branco:     #FFFFFF;
+  --borda:      #E2E8F0;
+}
+body { font-family: sans-serif; background: var(--fundo); color: var(--jf-navy); padding: 2rem; }
+#dashboard { max-width: 1000px; margin: 0 auto; }
+
+.dash-header {
+  background: var(--jf-navy); color: #fff;
+  padding: 1.3rem 1.8rem; border-radius: 10px; margin-bottom: 1.5rem;
+  border-bottom: 4px solid var(--jf-gold);
+}
+.dash-header h1 { font-size: 1.4rem; }
+.dash-header p  { font-size: .85rem; opacity: .75; margin-top: .2rem; }
+
+.grid-kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-card {
+  background: var(--branco); border-radius: 8px;
+  padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  border-top: 4px solid var(--jf-blue);
+  display: flex; flex-direction: column; gap: .4rem;
+}
+.kpi-card.tendencia-alta  { border-top-color: var(--alta-c);  }
+.kpi-card.tendencia-queda { border-top-color: var(--queda-c); }
+
+.kpi-empresa { font-weight: 700; font-size: .95rem; }
+.kpi-area    { font-size: .8rem; color: #666; text-transform: uppercase; letter-spacing: .05em; }
+.kpi-valor   { font-size: 1.4rem; font-weight: 700; margin-top: .2rem; }
+.kpi-meta    { font-size: .8rem; color: #888; }
+
+.kpi-badge {
+  display: inline-block; margin-top: .4rem;
+  font-size: .75rem; font-weight: 700; padding: .2rem .6rem;
+  border-radius: 20px;
+}
+.tendencia-alta  .kpi-badge { background: var(--alta-bg);  color: var(--alta-c);  }
+.tendencia-queda .kpi-badge { background: var(--queda-bg); color: var(--queda-c); }
+
+.analise-box {
+  background: var(--jf-navy); color: #fff;
+  padding: 1.2rem 1.6rem; border-radius: 8px;
+  font-size: .88rem; line-height: 1.9; white-space: pre-line;
+  border-left: 5px solid var(--jf-gold);
+}

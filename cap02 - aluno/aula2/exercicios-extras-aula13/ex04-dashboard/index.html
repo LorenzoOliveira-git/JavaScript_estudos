@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+  EXERCÍCIO 04 — Dashboard de Indicadores J&F
+  Nível: ⭐⭐⭐⭐ Avançado
+  Aula 13 · DAD 2026 · Germinare TECH
+  ─────────────────────────────────────
+  SITUAÇÃO-PROBLEMA:
+  A diretoria do Grupo J&F usa um dashboard HTML de indicadores
+  de performance. O analista precisa de um script que cruze os
+  dados dos cards, calcule totais, médias e identifique tendências
+  — tudo lendo os atributos e conteúdos do DOM.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard J&F — Exercício 04</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="dashboard">
+
+    <header class="dash-header">
+      <h1>Grupo J&F · Dashboard de Indicadores</h1>
+      <p>Ciclo 2026 — Análise de Performance</p>
+    </header>
+
+    <!-- Grid de cards de KPI -->
+    <section id="grid-kpi" class="grid-kpi">
+
+      <div class="kpi-card tendencia-alta" data-empresa="JBS" data-area="vendas" data-valor="142.5" data-meta="130.0">
+        <span class="kpi-empresa">JBS</span>
+        <span class="kpi-area">Vendas</span>
+        <div class="kpi-valor">R$ 142,5 mi</div>
+        <div class="kpi-meta">Meta: R$ 130,0 mi</div>
+        <span class="kpi-badge">▲ Acima da meta</span>
+      </div>
+
+      <div class="kpi-card tendencia-queda" data-empresa="Seara" data-area="producao" data-valor="88.2" data-meta="95.0">
+        <span class="kpi-empresa">Seara</span>
+        <span class="kpi-area">Produção</span>
+        <div class="kpi-valor">R$ 88,2 mi</div>
+        <div class="kpi-meta">Meta: R$ 95,0 mi</div>
+        <span class="kpi-badge">▼ Abaixo da meta</span>
+      </div>
+
+      <div class="kpi-card tendencia-alta" data-empresa="Vigor" data-area="vendas" data-valor="34.8" data-meta="30.0">
+        <span class="kpi-empresa">Vigor</span>
+        <span class="kpi-area">Vendas</span>
+        <div class="kpi-valor">R$ 34,8 mi</div>
+        <div class="kpi-meta">Meta: R$ 30,0 mi</div>
+        <span class="kpi-badge">▲ Acima da meta</span>
+      </div>
+
+      <div class="kpi-card tendencia-queda" data-empresa="Flora" data-area="marketing" data-valor="12.1" data-meta="15.0">
+        <span class="kpi-empresa">Flora</span>
+        <span class="kpi-area">Marketing</span>
+        <div class="kpi-valor">R$ 12,1 mi</div>
+        <div class="kpi-meta">Meta: R$ 15,0 mi</div>
+        <span class="kpi-badge">▼ Abaixo da meta</span>
+      </div>
+
+      <div class="kpi-card tendencia-alta" data-empresa="Banco Original" data-area="financeiro" data-valor="210.0" data-meta="200.0">
+        <span class="kpi-empresa">Banco Original</span>
+        <span class="kpi-area">Financeiro</span>
+        <div class="kpi-valor">R$ 210,0 mi</div>
+        <div class="kpi-meta">Meta: R$ 200,0 mi</div>
+        <span class="kpi-badge">▲ Acima da meta</span>
+      </div>
+
+      <div class="kpi-card tendencia-alta" data-empresa="FS Bioenergia" data-area="producao" data-valor="56.3" data-meta="50.0">
+        <span class="kpi-empresa">FS Bioenergia</span>
+        <span class="kpi-area">Produção</span>
+        <div class="kpi-valor">R$ 56,3 mi</div>
+        <div class="kpi-meta">Meta: R$ 50,0 mi</div>
+        <span class="kpi-badge">▲ Acima da meta</span>
+      </div>
+
+    </section>
+
+    <div id="analise-final" class="analise-box">
+      Análise não executada.
+    </div>
+
+  </main>
+
+  <script src="exercicio.js"></script>
+  <!-- <script src="gabarito.js"></script> -->
+
+</body>
+</html>
