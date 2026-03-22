@@ -1,0 +1,56 @@
+/*  style.css — Exercício 03: Colaboradores Germinare  */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gem-azul:   #1B2A4A;
+  --gem-gold:   #C9A227;
+  --ativo-c:    #15803D;  --ativo-bg:    #DCFCE7;
+  --licenca-c:  #B45309;  --licenca-bg:  #FEF3C7;
+  --deslig-c:   #B91C1C;  --deslig-bg:   #FEE2E2;
+  --fundo:      #F1F5F9;
+  --branco:     #FFFFFF;
+  --borda:      #E2E8F0;
+  --texto-med:  #475569;
+}
+body { font-family: sans-serif; background: var(--fundo); padding: 2rem; color: #0F172A; }
+#painel-rh { max-width: 860px; margin: 0 auto; }
+
+.rh-header {
+  background: var(--gem-azul); color: #fff;
+  padding: 1.2rem 1.8rem; border-radius: 8px; margin-bottom: 1.5rem;
+  border-left: 6px solid var(--gem-gold);
+}
+.rh-header h1 { font-size: 1.4rem; }
+.rh-header p  { font-size: 0.85rem; opacity: .8; margin-top: .2rem; }
+
+#lista-colaboradores { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem; }
+
+.colaborador {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1fr .8fr 1fr;
+  align-items: center;
+  gap: .5rem;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: .65rem 1rem;
+  font-size: .88rem;
+}
+.colaborador.desligado { opacity: .6; }
+
+.col-nome    { font-weight: 600; }
+.col-depto, .col-nivel, .col-ingresso { color: var(--texto-med); }
+
+.ativo-badge, .licenca-badge, .desligado-badge {
+  display: inline-block; padding: .15rem .55rem; border-radius: 20px;
+  font-size: .75rem; font-weight: 700; text-align: center;
+}
+.ativo-badge     { background: var(--ativo-bg);   color: var(--ativo-c);   }
+.licenca-badge   { background: var(--licenca-bg);  color: var(--licenca-c); }
+.desligado-badge { background: var(--deslig-bg);   color: var(--deslig-c);  }
+
+.relatorio-box {
+  background: var(--gem-azul); color: #fff;
+  padding: 1rem 1.4rem; border-radius: 8px;
+  font-size: .88rem; line-height: 1.8; white-space: pre-line;
+}

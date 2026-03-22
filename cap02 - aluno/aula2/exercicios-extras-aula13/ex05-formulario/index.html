@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+  EXERCÍCIO 05 — Formulário de Cadastro de Vagas
+  Nível: ⭐⭐⭐⭐⭐ Desafio
+  Aula 13 · DAD 2026 · Germinare TECH
+  ─────────────────────────────────────
+  SITUAÇÃO-PROBLEMA:
+  O Banco Original abriu vagas de estágio em tecnologia.
+  O formulário de candidatura já foi desenvolvido pelo time
+  de front-end. Agora cabe a você escrever um script de
+  validação e leitura que:
+  - leia todos os campos via seletores DOM
+  - valide se os campos obrigatórios estão preenchidos
+  - identifique quais checkboxes foram marcados
+  - leia o valor selecionado no radio e no select
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vagas Banco Original — Exercício 05</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="pagina-vagas">
+
+    <header class="banco-header">
+      <h1>Banco Original · Vagas de Estágio</h1>
+      <p>Tecnologia &amp; Inovação — Ciclo 2026</p>
+    </header>
+
+    <form id="form-candidatura" novalidate>
+
+      <!-- Dados pessoais -->
+      <fieldset class="grupo-campo" id="grupo-pessoal">
+        <legend class="grupo-legenda">Dados Pessoais</legend>
+
+        <div class="campo">
+          <label for="campo-nome">Nome completo <span class="obrigatorio">*</span></label>
+          <input type="text" id="campo-nome" name="nome"
+                 class="input-texto obrigatorio-campo"
+                 placeholder="Seu nome completo"
+                 value="Maria da Silva">
+        </div>
+
+        <div class="campo">
+          <label for="campo-email">E-mail <span class="obrigatorio">*</span></label>
+          <input type="email" id="campo-email" name="email"
+                 class="input-texto obrigatorio-campo"
+                 placeholder="seu@email.com"
+                 value="maria@email.com">
+        </div>
+
+        <div class="campo">
+          <label for="campo-curso">Curso <span class="obrigatorio">*</span></label>
+          <input type="text" id="campo-curso" name="curso"
+                 class="input-texto obrigatorio-campo"
+                 placeholder="Ex: Análise e Desenvolvimento de Sistemas"
+                 value="Técnico em Informática">
+        </div>
+
+      </fieldset>
+
+      <!-- Disponibilidade -->
+      <fieldset class="grupo-campo" id="grupo-disponibilidade">
+        <legend class="grupo-legenda">Disponibilidade de Horário</legend>
+
+        <div class="opcoes-radio">
+          <label class="label-radio">
+            <input type="radio" name="turno" value="manha" class="radio-turno"> Manhã
+          </label>
+          <label class="label-radio">
+            <input type="radio" name="turno" value="tarde" class="radio-turno" checked> Tarde
+          </label>
+          <label class="label-radio">
+            <input type="radio" name="turno" value="noite" class="radio-turno"> Noite
+          </label>
+          <label class="label-radio">
+            <input type="radio" name="turno" value="integral" class="radio-turno"> Integral
+          </label>
+        </div>
+
+      </fieldset>
+
+      <!-- Habilidades -->
+      <fieldset class="grupo-campo" id="grupo-habilidades">
+        <legend class="grupo-legenda">Habilidades Técnicas</legend>
+
+        <div class="opcoes-check">
+          <label class="label-check">
+            <input type="checkbox" name="habilidade" value="javascript" class="check-habilidade" checked> JavaScript
+          </label>
+          <label class="label-check">
+            <input type="checkbox" name="habilidade" value="html-css" class="check-habilidade" checked> HTML/CSS
+          </label>
+          <label class="label-check">
+            <input type="checkbox" name="habilidade" value="python" class="check-habilidade"> Python
+          </label>
+          <label class="label-check">
+            <input type="checkbox" name="habilidade" value="sql" class="check-habilidade" checked> SQL
+          </label>
+          <label class="label-check">
+            <input type="checkbox" name="habilidade" value="git" class="check-habilidade"> Git
+          </label>
+        </div>
+
+      </fieldset>
+
+      <!-- Área de interesse -->
+      <fieldset class="grupo-campo" id="grupo-area">
+        <legend class="grupo-legenda">Área de Interesse</legend>
+
+        <div class="campo">
+          <label for="select-area">Selecione a área <span class="obrigatorio">*</span></label>
+          <select id="select-area" name="area" class="input-select obrigatorio-campo">
+            <option value="">-- Selecione --</option>
+            <option value="backend" selected>Desenvolvimento Back-end</option>
+            <option value="frontend">Desenvolvimento Front-end</option>
+            <option value="dados">Ciência de Dados</option>
+            <option value="infra">Infraestrutura</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="textarea-motivacao">Por que o Banco Original? <span class="obrigatorio">*</span></label>
+          <textarea id="textarea-motivacao" name="motivacao"
+                    class="input-textarea obrigatorio-campo"
+                    rows="3"
+                    placeholder="Mínimo 20 caracteres">Tenho interesse em tecnologia financeira e inovação digital.</textarea>
+        </div>
+
+      </fieldset>
+
+    </form>
+
+    <div id="resultado-validacao" class="resultado-box">
+      Validação não executada.
+    </div>
+
+  </main>
+
+  <script src="exercicio.js"></script>
+  <!-- <script src="gabarito.js"></script> -->
+
+</body>
+</html>

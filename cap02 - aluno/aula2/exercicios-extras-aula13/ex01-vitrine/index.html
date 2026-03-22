@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  EXERCÍCIO 01 — Vitrine de Produtos JBS
+  Nível: ⭐ Iniciante
+  Aula 13 · DAD 2026 · Germinare TECH
+  ─────────────────────────────────────
+  SITUAÇÃO-PROBLEMA:
+  O time de e-commerce da JBS precisa que você desenvolva
+  um script de inspeção da vitrine de produtos.
+  O gerente quer saber, via Console, quais produtos estão
+  disponíveis, quais estão indisponíveis e o título da vitrine.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vitrine JBS — Exercício 01</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="vitrine">
+
+    <header class="vitrine-header">
+      <h1 id="titulo-vitrine">Linha Premium JBS</h1>
+      <p class="descricao-vitrine">Qualidade e sabor direto da JBS para sua mesa.</p>
+    </header>
+
+    <section class="grade-produtos">
+
+      <article class="produto disponivel" data-categoria="bovino" data-preco="42.90">
+        <h2 class="nome-produto">Picanha JBS Friboi</h2>
+        <p class="preco-produto">R$ 42,90 / kg</p>
+        <span class="badge">disponível</span>
+      </article>
+
+      <article class="produto disponivel" data-categoria="bovino" data-preco="28.50">
+        <h2 class="nome-produto">Contrafilé Friboi</h2>
+        <p class="preco-produto">R$ 28,50 / kg</p>
+        <span class="badge">disponível</span>
+      </article>
+
+      <article class="produto indisponivel" data-categoria="suino" data-preco="19.90">
+        <h2 class="nome-produto">Costela Suína Swift</h2>
+        <p class="preco-produto">R$ 19,90 / kg</p>
+        <span class="badge">indisponível</span>
+      </article>
+
+      <article class="produto disponivel" data-categoria="frango" data-preco="12.80">
+        <h2 class="nome-produto">Peito de Frango Seara</h2>
+        <p class="preco-produto">R$ 12,80 / kg</p>
+        <span class="badge">disponível</span>
+      </article>
+
+      <article class="produto indisponivel" data-categoria="bovino" data-preco="55.00">
+        <h2 class="nome-produto">Ancho Premium Friboi</h2>
+        <p class="preco-produto">R$ 55,00 / kg</p>
+        <span class="badge">indisponível</span>
+      </article>
+
+      <article class="produto disponivel" data-categoria="suino" data-preco="22.40">
+        <h2 class="nome-produto">Bacon Defumado Swift</h2>
+        <p class="preco-produto">R$ 22,40 / kg</p>
+        <span class="badge">disponível</span>
+      </article>
+
+    </section>
+
+    <footer class="vitrine-footer">
+      <p id="contador-resultado">Carregando produtos...</p>
+    </footer>
+
+  </main>
+
+  <!--
+    Para praticar: ative o exercicio.js
+    Para ver a resolução: ative o gabarito.js
+  -->
+  <script src="exercicio.js"></script>
+  <!-- <script src="gabarito.js"></script> -->
+
+</body>
+</html>

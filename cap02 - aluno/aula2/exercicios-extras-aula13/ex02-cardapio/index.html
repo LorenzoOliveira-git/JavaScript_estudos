@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+  EXERCÍCIO 02 — Cardápio Digital Seara
+  Nível: ⭐⭐ Básico
+  Aula 13 · DAD 2026 · Germinare TECH
+  ─────────────────────────────────────
+  SITUAÇÃO-PROBLEMA:
+  A Seara está lançando um cardápio digital para seu app.
+  Você precisa inspecionar a estrutura HTML do cardápio,
+  extrair informações agrupadas por categoria e identificar
+  promoções, usando seletores progressivamente mais complexos.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardápio Seara — Exercício 02</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="cardapio">
+
+    <header class="cardapio-header">
+      <h1>Cardápio Seara</h1>
+      <p>Sabor e praticidade no seu dia a dia</p>
+    </header>
+
+    <section class="categoria" data-tipo="aves">
+      <h2 class="categoria-titulo">🐔 Aves</h2>
+
+      <ul class="lista-itens">
+        <li class="item-cardapio" data-kcal="165" data-preco="12.80">
+          <span class="nome-item">Peito de Frango Grelhado</span>
+          <span class="kcal">165 kcal</span>
+          <span class="preco">R$ 12,80</span>
+        </li>
+        <li class="item-cardapio promocao" data-kcal="210" data-preco="9.90">
+          <span class="nome-item">Coxa e Sobrecoxa Assada</span>
+          <span class="kcal">210 kcal</span>
+          <span class="preco">R$ 9,90</span>
+          <span class="tag-promo">PROMOÇÃO</span>
+        </li>
+        <li class="item-cardapio" data-kcal="290" data-preco="15.50">
+          <span class="nome-item">Frango Inteiro Temperado</span>
+          <span class="kcal">290 kcal</span>
+          <span class="preco">R$ 15,50</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="categoria" data-tipo="embutidos">
+      <h2 class="categoria-titulo">🌭 Embutidos</h2>
+
+      <ul class="lista-itens">
+        <li class="item-cardapio promocao" data-kcal="310" data-preco="7.50">
+          <span class="nome-item">Salsicha Seara Hot Dog</span>
+          <span class="kcal">310 kcal</span>
+          <span class="preco">R$ 7,50</span>
+          <span class="tag-promo">PROMOÇÃO</span>
+        </li>
+        <li class="item-cardapio" data-kcal="270" data-preco="11.20">
+          <span class="nome-item">Linguiça Toscana Seara</span>
+          <span class="kcal">270 kcal</span>
+          <span class="preco">R$ 11,20</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="categoria" data-tipo="praticos">
+      <h2 class="categoria-titulo">⚡ Práticos</h2>
+
+      <ul class="lista-itens">
+        <li class="item-cardapio" data-kcal="380" data-preco="18.90">
+          <span class="nome-item">Nuggets de Frango 400g</span>
+          <span class="kcal">380 kcal</span>
+          <span class="preco">R$ 18,90</span>
+        </li>
+        <li class="item-cardapio promocao" data-kcal="320" data-preco="14.00">
+          <span class="nome-item">Empanado de Frango Seara</span>
+          <span class="kcal">320 kcal</span>
+          <span class="preco">R$ 14,00</span>
+          <span class="tag-promo">PROMOÇÃO</span>
+        </li>
+        <li class="item-cardapio" data-kcal="430" data-preco="22.50">
+          <span class="nome-item">Pizza Frango com Catupiry</span>
+          <span class="kcal">430 kcal</span>
+          <span class="preco">R$ 22,50</span>
+        </li>
+      </ul>
+    </section>
+
+    <div id="resumo-cardapio" class="resumo-box">
+      Aguardando análise do script...
+    </div>
+
+  </main>
+
+  <script src="exercicio.js"></script>
+  <!-- <script src="gabarito.js"></script> -->
+
+</body>
+</html>

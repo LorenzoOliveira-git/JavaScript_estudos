@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--
+  EXERCÍCIO 03 — Lista de Colaboradores Germinare
+  Nível: ⭐⭐⭐ Intermediário
+  Aula 13 · DAD 2026 · Germinare TECH
+  ─────────────────────────────────────
+  SITUAÇÃO-PROBLEMA:
+  O RH da Germinare TECH precisa que você desenvolva
+  um script de auditoria da lista de colaboradores.
+  O sistema legado gerou um HTML com informações dos
+  colaboradores e você deve extrair, filtrar e cruzar
+  dados usando apenas seletores DOM — sem bibliotecas externas.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colaboradores Germinare — Exercício 03</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="painel-rh">
+
+    <header class="rh-header">
+      <h1>Germinare TECH · RH</h1>
+      <p>Painel de Colaboradores — Ciclo 2026</p>
+    </header>
+
+    <section id="lista-colaboradores">
+
+      <!-- Departamento: Tecnologia -->
+      <div class="colaborador ativo" data-depto="tecnologia" data-nivel="junior" data-ingresso="2024">
+        <span class="col-nome">Ana Souza</span>
+        <span class="col-depto">Tecnologia</span>
+        <span class="col-nivel">Júnior</span>
+        <span class="col-ingresso">2024</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador ativo" data-depto="tecnologia" data-nivel="pleno" data-ingresso="2022">
+        <span class="col-nome">Bruno Lima</span>
+        <span class="col-depto">Tecnologia</span>
+        <span class="col-nivel">Pleno</span>
+        <span class="col-ingresso">2022</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador licenca" data-depto="tecnologia" data-nivel="senior" data-ingresso="2020">
+        <span class="col-nome">Carla Mendes</span>
+        <span class="col-depto">Tecnologia</span>
+        <span class="col-nivel">Sênior</span>
+        <span class="col-ingresso">2020</span>
+        <span class="col-status licenca-badge">Licença</span>
+      </div>
+
+      <!-- Departamento: Educação -->
+      <div class="colaborador ativo" data-depto="educacao" data-nivel="pleno" data-ingresso="2021">
+        <span class="col-nome">Diego Faria</span>
+        <span class="col-depto">Educação</span>
+        <span class="col-nivel">Pleno</span>
+        <span class="col-ingresso">2021</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador ativo" data-depto="educacao" data-nivel="senior" data-ingresso="2019">
+        <span class="col-nome">Elena Rocha</span>
+        <span class="col-depto">Educação</span>
+        <span class="col-nivel">Sênior</span>
+        <span class="col-ingresso">2019</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador desligado" data-depto="educacao" data-nivel="junior" data-ingresso="2023">
+        <span class="col-nome">Felipe Costa</span>
+        <span class="col-depto">Educação</span>
+        <span class="col-nivel">Júnior</span>
+        <span class="col-ingresso">2023</span>
+        <span class="col-status desligado-badge">Desligado</span>
+      </div>
+
+      <!-- Departamento: Gestão -->
+      <div class="colaborador ativo" data-depto="gestao" data-nivel="senior" data-ingresso="2018">
+        <span class="col-nome">Gabriela Nunes</span>
+        <span class="col-depto">Gestão</span>
+        <span class="col-nivel">Sênior</span>
+        <span class="col-ingresso">2018</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador ativo" data-depto="gestao" data-nivel="pleno" data-ingresso="2022">
+        <span class="col-nome">Hugo Dias</span>
+        <span class="col-depto">Gestão</span>
+        <span class="col-nivel">Pleno</span>
+        <span class="col-ingresso">2022</span>
+        <span class="col-status ativo-badge">Ativo</span>
+      </div>
+
+      <div class="colaborador licenca" data-depto="gestao" data-nivel="pleno" data-ingresso="2021">
+        <span class="col-nome">Isabela Torres</span>
+        <span class="col-depto">Gestão</span>
+        <span class="col-nivel">Pleno</span>
+        <span class="col-ingresso">2021</span>
+        <span class="col-status licenca-badge">Licença</span>
+      </div>
+
+    </section>
+
+    <div id="relatorio-rh" class="relatorio-box">
+      Script de auditoria não executado.
+    </div>
+
+  </main>
+
+  <script src="exercicio.js"></script>
+  <!-- <script src="gabarito.js"></script> -->
+
+</body>
+</html>

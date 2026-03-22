@@ -1,0 +1,89 @@
+/*
+  style.css — Exercício 01: Vitrine JBS
+  DAD 2026 · Aula 13 · Germinare TECH
+*/
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --jbs-vermelho:  #C8102E;
+  --jbs-escuro:    #1A1A1A;
+  --cinza-claro:   #F5F5F5;
+  --cinza-borda:   #E0E0E0;
+  --verde-ok:      #15803D;
+  --verde-soft:    #DCFCE7;
+  --vermelho-soft: #FEE2E2;
+  --texto-med:     #555555;
+  --branco:        #FFFFFF;
+  --sombra:        0 2px 8px rgba(0,0,0,0.09);
+}
+
+body {
+  font-family: sans-serif;
+  background: var(--cinza-claro);
+  color: var(--jbs-escuro);
+  padding: 2rem;
+}
+
+#vitrine { max-width: 960px; margin: 0 auto; }
+
+/* Header */
+.vitrine-header {
+  background: var(--jbs-vermelho);
+  color: var(--branco);
+  padding: 1.5rem 2rem;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 1.5rem;
+}
+.vitrine-header h1 { font-size: 1.6rem; }
+.vitrine-header .descricao-vitrine {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+
+/* Grade de produtos */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Card produto */
+.produto {
+  background: var(--branco);
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: var(--sombra);
+  border-left: 4px solid transparent;
+}
+.produto.disponivel  { border-left-color: var(--verde-ok); }
+.produto.indisponivel {
+  border-left-color: var(--jbs-vermelho);
+  opacity: 0.65;
+}
+
+.nome-produto  { font-size: 1rem; margin-bottom: 0.4rem; color: var(--jbs-escuro); }
+.preco-produto { font-size: 0.9rem; color: var(--texto-med); margin-bottom: 0.75rem; }
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.disponivel  .badge { background: var(--verde-soft);    color: var(--verde-ok); }
+.indisponivel .badge { background: var(--vermelho-soft); color: var(--jbs-vermelho); }
+
+/* Footer */
+.vitrine-footer {
+  background: var(--jbs-escuro);
+  color: var(--branco);
+  padding: 1rem 1.5rem;
+  border-radius: 0 0 10px 10px;
+  font-size: 0.9rem;
+}

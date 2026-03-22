@@ -1,0 +1,66 @@
+/*  style.css — Exercício 05: Formulário Banco Original  */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --banco-verde:  #00673A;
+  --banco-claro:  #E6F4EE;
+  --fundo:        #F5F5F5;
+  --branco:       #FFFFFF;
+  --borda:        #D1D5DB;
+  --texto:        #111827;
+  --texto-med:    #6B7280;
+  --erro-c:       #B91C1C;
+  --erro-bg:      #FEE2E2;
+  --ok-c:         #15803D;
+  --ok-bg:        #DCFCE7;
+}
+body { font-family: sans-serif; background: var(--fundo); color: var(--texto); padding: 2rem; }
+#pagina-vagas { max-width: 680px; margin: 0 auto; }
+
+.banco-header {
+  background: var(--banco-verde); color: #fff;
+  padding: 1.3rem 1.8rem; border-radius: 10px; margin-bottom: 1.5rem;
+}
+.banco-header h1 { font-size: 1.4rem; }
+.banco-header p  { font-size: .85rem; opacity: .8; margin-top: .2rem; }
+
+.grupo-campo {
+  background: var(--branco); border: 1px solid var(--borda);
+  border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+}
+.grupo-legenda {
+  font-weight: 700; font-size: .9rem; color: var(--banco-verde);
+  padding: 0 .4rem; margin-bottom: .75rem;
+}
+
+.campo { margin-bottom: .9rem; }
+.campo:last-child { margin-bottom: 0; }
+.campo label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; }
+.obrigatorio  { color: var(--erro-c); }
+
+.input-texto, .input-select, .input-textarea {
+  width: 100%; padding: .55rem .8rem;
+  border: 1px solid var(--borda); border-radius: 6px;
+  font-size: .9rem; color: var(--texto);
+  font-family: inherit;
+}
+.input-textarea { resize: vertical; }
+.input-texto:focus, .input-select:focus, .input-textarea:focus {
+  outline: none; border-color: var(--banco-verde); box-shadow: 0 0 0 2px var(--banco-claro);
+}
+
+.opcoes-radio, .opcoes-check {
+  display: flex; flex-wrap: wrap; gap: .6rem 1.4rem;
+}
+.label-radio, .label-check {
+  display: flex; align-items: center; gap: .4rem;
+  font-size: .9rem; cursor: pointer;
+}
+
+.resultado-box {
+  margin-top: 1.2rem; background: var(--texto); color: #fff;
+  padding: 1.2rem 1.6rem; border-radius: 8px;
+  font-size: .88rem; line-height: 1.9; white-space: pre-line;
+}
+.resultado-box.valido  { background: var(--ok-c);   }
+.resultado-box.invalido { background: var(--erro-c); }
