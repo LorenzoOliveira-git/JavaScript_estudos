@@ -1,0 +1,28 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --germ-blue: #1565C0; --germ-soft: #E3F2FD; --germ-dark: #0D1B2A;
+  --bg: #F1F5F9; --card: #FFFFFF; --borda: #E2E8F0;
+  --texto: #0F172A; --med: #475569; --raio: 10px; --sombra: 0 2px 8px rgba(0,0,0,0.08);
+}
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--texto); }
+.rh-header { background: var(--germ-dark); color: white; padding: 1.5rem 2rem; border-bottom: 3px solid var(--germ-blue); display: flex; align-items: center; gap: 2rem; }
+.rh-header h1 { font-size: 1.4rem; } .rh-header p { font-size: 0.8rem; color: #94A3B8; }
+.painel-stats { margin-left: auto; display: flex; gap: 1.5rem; }
+.stat { text-align: center; } .stat-num { display: block; font-size: 1.6rem; font-weight: 700; color: #38BDF8; }
+.stat-label { font-size: 0.7rem; color: #94A3B8; text-transform: uppercase; letter-spacing: 1px; }
+.rh-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; padding: 1.5rem; max-width: 1000px; margin: 0 auto; }
+.colab-card { background: var(--card); border-radius: var(--raio); padding: 1.2rem; box-shadow: var(--sombra); display: flex; gap: 1rem; align-items: flex-start; }
+.colab-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--germ-blue); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+.colab-info { flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
+.colab-nome { font-size: 0.95rem; font-weight: 700; }
+.colab-cargo { font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; }
+.colab-cargo[data-nivel="junior"]  { background: #F1F5F9; color: #475569; }
+.colab-cargo[data-nivel="pleno"]   { background: #DBEAFE; color: #1D6FA4; }
+.colab-cargo[data-nivel="senior"]  { background: #FEF3C7; color: #B45309; }
+.colab-area { font-size: 0.75rem; color: var(--med); }
+.colab-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
+.colab-salario { font-size: 0.85rem; font-weight: 700; color: var(--germ-blue); }
+.colab-status { font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 10px; font-weight: 600; }
+.colab-status[data-ativo="true"]  { background: #DCFCE7; color: #15803D; }
+.colab-status[data-ativo="false"] { background: #FEE2E2; color: #B91C1C; }
+.rh-footer { background: var(--germ-dark); color: #94A3B8; padding: 1.2rem 2rem; font-size: 0.85rem; }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><title>Dashboard J&F — Ex04</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="dash-header">
+    <h1>Dashboard J&F — KPIs</h1>
+    <span id="ultima-atualizacao">Última atualização: ---</span>
+  </header>
+  <main class="dash-grid">
+    <div class="kpi-card" id="kpi-receita" data-valor="2847650" data-meta="3000000" data-unidade="BRL" data-variacao="8.3" data-positivo="true">
+      <h3 class="kpi-titulo">Receita Mensal</h3>
+      <div class="kpi-valor">---</div>
+      <div class="kpi-meta">Meta: ---</div>
+      <div class="kpi-variacao" data-positivo="true">---</div>
+      <div class="kpi-barra"><div class="kpi-progress" id="prog-receita"></div></div>
+    </div>
+    <div class="kpi-card" id="kpi-colaboradores" data-valor="1842" data-meta="2000" data-unidade="pessoas" data-variacao="12.1" data-positivo="true">
+      <h3 class="kpi-titulo">Colaboradores</h3>
+      <div class="kpi-valor">---</div>
+      <div class="kpi-meta">Meta: ---</div>
+      <div class="kpi-variacao" data-positivo="true">---</div>
+      <div class="kpi-barra"><div class="kpi-progress" id="prog-colaboradores"></div></div>
+    </div>
+    <div class="kpi-card" id="kpi-satisfacao" data-valor="87" data-meta="90" data-unidade="%" data-variacao="-2.4" data-positivo="false">
+      <h3 class="kpi-titulo">Satisfação</h3>
+      <div class="kpi-valor">---</div>
+      <div class="kpi-meta">Meta: ---</div>
+      <div class="kpi-variacao" data-positivo="false">---</div>
+      <div class="kpi-barra"><div class="kpi-progress" id="prog-satisfacao"></div></div>
+    </div>
+    <div class="kpi-card" id="kpi-novos" data-valor="234" data-meta="300" data-unidade="pessoas" data-variacao="5.7" data-positivo="true">
+      <h3 class="kpi-titulo">Novas Contratações</h3>
+      <div class="kpi-valor">---</div>
+      <div class="kpi-meta">Meta: ---</div>
+      <div class="kpi-variacao" data-positivo="true">---</div>
+      <div class="kpi-barra"><div class="kpi-progress" id="prog-novos"></div></div>
+    </div>
+  </main>
+  <footer id="dash-resumo">Resumo: carregando...</footer>
+  <script src="exercicio.js"></script>
+  
+</body>
+</html>

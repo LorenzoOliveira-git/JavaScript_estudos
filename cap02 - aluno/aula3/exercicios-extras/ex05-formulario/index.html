@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><title>Cadastro Banco Original — Ex05</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="form-header">
+    <h1>Banco Original</h1>
+    <p>Cadastro de Colaborador</p>
+  </header>
+  <main class="form-container">
+    <form id="form-cadastro" novalidate>
+      <div class="form-group">
+        <label for="input-nome">Nome completo *</label>
+        <input type="text" id="input-nome" placeholder="Ex: Ana Paula Ferreira" data-minlen="5">
+        <span class="msg-erro" id="erro-nome"></span>
+      </div>
+      <div class="form-group">
+        <label for="input-email">E-mail corporativo *</label>
+        <input type="email" id="input-email" placeholder="nome@bancooriginal.com.br" data-dominio="bancooriginal.com.br">
+        <span class="msg-erro" id="erro-email"></span>
+      </div>
+      <div class="form-group">
+        <label for="select-area">Área de atuação *</label>
+        <select id="select-area">
+          <option value="">Selecione...</option>
+          <option value="tecnologia">Tecnologia</option>
+          <option value="financeiro">Financeiro</option>
+          <option value="operacoes">Operações</option>
+          <option value="rh">Recursos Humanos</option>
+        </select>
+        <span class="msg-erro" id="erro-area"></span>
+      </div>
+      <div class="form-group">
+        <label>Nível *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="nivel" value="junior"> Júnior</label>
+          <label><input type="radio" name="nivel" value="pleno"> Pleno</label>
+          <label><input type="radio" name="nivel" value="senior"> Sênior</label>
+        </div>
+        <span class="msg-erro" id="erro-nivel"></span>
+      </div>
+      <div class="form-group">
+        <label for="input-salario">Salário (R$) *</label>
+        <input type="number" id="input-salario" placeholder="Ex: 8500" min="1320" data-minsal="1320">
+        <span class="msg-erro" id="erro-salario"></span>
+      </div>
+      <div class="form-group check-group">
+        <label><input type="checkbox" id="check-lgpd"> Li e aceito a Política de Privacidade (LGPD) *</label>
+        <span class="msg-erro" id="erro-lgpd"></span>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Cadastrar Colaborador</button>
+        <button type="button" class="btn-limpar" id="btn-limpar">Limpar</button>
+      </div>
+    </form>
+    <aside id="preview-card" class="preview-card hidden" aria-live="polite">
+      <h3>Preview do Cadastro</h3>
+      <div class="preview-linha"><span class="prev-label">Nome:</span><span id="prev-nome">---</span></div>
+      <div class="preview-linha"><span class="prev-label">E-mail:</span><span id="prev-email">---</span></div>
+      <div class="preview-linha"><span class="prev-label">Área:</span><span id="prev-area">---</span></div>
+      <div class="preview-linha"><span class="prev-label">Nível:</span><span id="prev-nivel">---</span></div>
+      <div class="preview-linha"><span class="prev-label">Salário:</span><span id="prev-salario">---</span></div>
+    </aside>
+  </main>
+  <div id="msg-sucesso" class="msg-sucesso hidden"></div>
+  <script src="exercicio.js"></script>
+  
+</body>
+</html>
