@@ -15,14 +15,14 @@
 // - Leia data-valor e data-unidade via dataset
 // - Formate e exiba no .kpi-valor com textContent
 // BRL: use toLocaleString  |  % e pessoas: exibir direto + unidade
-const kpis = PREENCHA_AQUI;
+const kpis = document.querySelectorAll(".kpi-card");
 kpis.forEach(kpi => {
-  const valor   = Number(kpi.dataset.PREENCHA_AQUI);
-  const unidade = kpi.dataset.PREENCHA_AQUI;
+  const valor   = Number(kpi.dataset.valor);
+  const unidade = kpi.dataset.unidade;
   const valorEl = kpi.querySelector(".kpi-valor");
 
   if (unidade === "BRL") {
-    valorEl.textContent = valor.PREENCHA_AQUI('pt-BR', { style:'currency', currency:'BRL' });
+    valorEl.textContent = valor.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
   } else {
     valorEl.textContent = valor.toLocaleString('pt-BR') + " " + unidade;
   }
@@ -38,11 +38,11 @@ kpis.forEach(kpi => {
 
   let metaFormatada;
   if (unidade === "BRL") {
-    metaFormatada = PREENCHA_AQUI;
+    metaFormatada = meta.toLocaleString('pt-BR',{style:'currency',currency:unidade});
   } else {
     metaFormatada = meta.toLocaleString('pt-BR') + " " + unidade;
   }
-  metaEl.textContent = "Meta: " + PREENCHA_AQUI;
+  metaEl.textContent = "Meta: " + metaFormatada;
 });
 
 // ── TAREFA 03 ─────────────────────────────────────────────────
@@ -55,9 +55,9 @@ kpis.forEach(kpi => {
   const variacaoEl = kpi.querySelector(".kpi-variacao");
 
   const seta   = positivo === "true" ? "▲" : "▼";
-  const sinal  = positivo === "true" ? PREENCHA_AQUI : "";
+  const sinal  = positivo === "true" ? "+" : "";
   variacaoEl.textContent = `${seta} ${sinal}${variacao}% vs mês anterior`;
-  variacaoEl.PREENCHA_AQUI("data-positivo", positivo);
+  variacaoEl.setAttribute("data-positivo", positivo);
 });
 
 // ── TAREFA 04 ─────────────────────────────────────────────────
@@ -67,16 +67,16 @@ kpis.forEach(kpi => {
 kpis.forEach(kpi => {
   const valor      = Number(kpi.dataset.valor);
   const meta       = Number(kpi.dataset.meta);
-  const pct        = Math.min(PREENCHA_AQUI, 100).toFixed(1); // máximo 100%
+  const pct        = Math.min(valor/meta * 100, 100).toFixed(1); // máximo 100%
   const progressEl = kpi.querySelector(".kpi-progress");
-  progressEl.setAttribute("style", PREENCHA_AQUI);
+  progressEl.setAttribute("style", `width: ${pct}%`);
 });
 
 // ── TAREFA 05 ─────────────────────────────────────────────────
 // Atualize #ultima-atualizacao com textContent usando a data atual.
 // dica: new Date().toLocaleString('pt-BR')
 document.getElementById("ultima-atualizacao").textContent =
-  "Última atualização: " + PREENCHA_AQUI;
+  "Última atualização: " + new Date().toLocaleDateString('pt-BR');
 
 // ── TAREFA 06 ─────────────────────────────────────────────────
 // Gere um resumo com innerHTML no footer #dash-resumo.
@@ -86,7 +86,7 @@ const kpisAtingidos = Array.from(kpis).filter(k =>
 ).length;
 document.getElementById("dash-resumo").innerHTML =
   `Dashboard J&F · <strong>${kpis.length}</strong> KPIs monitorados · ` +
-  `<strong>${PREENCHA_AQUI}</strong> atingiram a meta este mês`;
+  `<strong>${kpisAtingidos}</strong> atingiram a meta este mês`;
 
 console.log("═══ Verificação Ex04 ═══");
 console.log("KPI receita valor:", document.querySelector("#kpi-receita .kpi-valor").textContent);
