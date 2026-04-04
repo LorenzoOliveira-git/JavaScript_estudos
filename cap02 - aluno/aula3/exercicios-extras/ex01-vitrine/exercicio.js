@@ -15,43 +15,43 @@
 // Selecione o card #prod-001 e use textContent para ler o nome do produto.
 // Exiba no console: "Produto 1: Frango Inteiro Congelado"
 // dica: document.getElementById(...)  →  .textContent
-const card1 = PREENCHA_AQUI;
-console.log("Produto 1:", PREENCHA_AQUI);
+const card1 = document.getElementById("prod-001");
+console.log("Produto 1:",card1.textContent );
 
 // ── TAREFA 02 ────────────────────────────────────────────────
 // Leia o data-preco do #prod-001 com getAttribute e exiba no console.
 // dica: card1.getAttribute("data-preco")
-const preco1 = PREENCHA_AQUI;
+const preco1 = card1.getAttribute("data-preco");
 console.log("Preço 1:", preco1); // → "29.90"
 
 // ── TAREFA 03 ────────────────────────────────────────────────
 // Use dataset para ler data-categoria do #prod-001 e exibir no console.
 // dica: card1.dataset.categoria
-console.log("Categoria 1:", PREENCHA_AQUI); // → "aves"
+console.log("Categoria 1:", card1.dataset.categoria); // → "aves"
 
 // ── TAREFA 04 ────────────────────────────────────────────────
 // Selecione o .prod-preco dentro do #prod-001 e atualize com textContent.
 // O preço deve exibir: "R$ 29,90"
 // dica: card1.querySelector(".prod-preco")
-const precoEl1 = PREENCHA_AQUI;
-precoEl1.textContent = PREENCHA_AQUI;
+const precoEl1 = card1.querySelector(".prod-preco");
+precoEl1.textContent = "R$ 29,90";
 
 // ── TAREFA 05 ────────────────────────────────────────────────
 // Selecione o .prod-badge do #prod-001.
 // Use setAttribute para adicionar data-status="disponivel" nele.
 // dica: card1.querySelector(".prod-badge")  →  .setAttribute(...)
-const badge1 = PREENCHA_AQUI;
-badge1.setAttribute(PREENCHA_AQUI, PREENCHA_AQUI);
+const badge1 = card1.querySelector(".prod-badge");
+badge1.setAttribute("data-status", "disponivel");
 badge1.textContent = "Disponível";
 
 // ── TAREFA 06 ────────────────────────────────────────────────
 // Selecione TODOS os .card-produto com querySelectorAll.
 // Use forEach para: ler data-preco via getAttribute e exibir no console.
 // dica: document.querySelectorAll(".card-produto")
-const todosCards = PREENCHA_AQUI;
+const todosCards = document.querySelectorAll(".card-produto");
 todosCards.forEach(card => {
   const nome  = card.querySelector(".prod-nome").textContent;
-  const preco = PREENCHA_AQUI;
+  const preco = card.getAttribute("data-preco");
   console.log(`${nome}: R$ ${preco}`);
 });
 
@@ -61,8 +61,8 @@ todosCards.forEach(card => {
 // dica: preco.replace(".", ",")
 todosCards.forEach(card => {
   const precoRaw = card.getAttribute("data-preco");
-  const precoFormatado = "R$ " + PREENCHA_AQUI;
-  card.querySelector(PREENCHA_AQUI).textContent = precoFormatado;
+  const precoFormatado = "R$ " + precoRaw.replace(".",",");
+  card.querySelector(".prod-preco").textContent = precoFormatado;
 });
 
 // ── TAREFA 08 ────────────────────────────────────────────────
@@ -72,13 +72,13 @@ todosCards.forEach(card => {
 // dica: card.dataset.disponivel === "true"
 todosCards.forEach(card => {
   const badge      = card.querySelector(".prod-badge");
-  const disponivel = card.dataset.PREENCHA_AQUI;
-  if (PREENCHA_AQUI === "true") {
+  const disponivel = card.dataset.disponivel;
+  if (disponivel === "true") {
     badge.textContent = "Disponível";
     badge.setAttribute("data-status", "disponivel");
   } else {
-    badge.textContent = PREENCHA_AQUI;
-    badge.setAttribute("data-status", PREENCHA_AQUI);
+    badge.textContent = "Indisponível";
+    badge.setAttribute("data-status", "indisponivel");
   }
 });
 
@@ -89,8 +89,12 @@ todosCards.forEach(card => {
 const totalEl      = document.getElementById("total-produtos");
 const disponiveisEl = document.getElementById("total-disponiveis");
 
-const qtdTotal     = PREENCHA_AQUI;
-const qtdDisponiveis = PREENCHA_AQUI; // dica: use Array.from(todosCards).filter(...)
+const qtdTotal     = Array.from(todosCards).length;
+const qtdDisponiveis = Array.from(todosCards).filter(c =>{
+  if (c.dataset.disponivel === "true"){
+    return c;
+  }
+}).length; // dica: use Array.from(todosCards).filter(...)
 
 totalEl.querySelector("strong").textContent     = qtdTotal;
 disponiveisEl.querySelector("strong").textContent = qtdDisponiveis;

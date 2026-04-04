@@ -17,12 +17,12 @@ const AREAS  = { tecnologia: "Tecnologia", design: "Design", educacao: "Educaç�
 // Selecione todos os .colab-card e atualize .colab-cargo e .colab-area
 // usando dataset.nivel + dataset.area com os objetos CARGOS e AREAS acima.
 // dica: CARGOS[card.dataset.nivel]
-const cards = PREENCHA_AQUI;
+const cards = document.querySelectorAll(".colab-card");
 cards.forEach(card => {
   const cargoEl = card.querySelector(".colab-cargo");
   const areaEl  = card.querySelector(".colab-area");
-  cargoEl.textContent = PREENCHA_AQUI;
-  areaEl.textContent  = PREENCHA_AQUI;
+  cargoEl.textContent = CARGOS[card.dataset.nivel];
+  areaEl.textContent  = AREAS[card.dataset.area];
 });
 
 // ── TAREFA 02 ─────────────────────────────────────────────────
@@ -31,7 +31,7 @@ cards.forEach(card => {
 // dica: Number(card.dataset.salario).toLocaleString('pt-BR', {style:'currency', currency:'BRL'})
 cards.forEach(card => {
   const salarioEl = card.querySelector(".colab-salario");
-  salarioEl.textContent = PREENCHA_AQUI;
+  salarioEl.textContent = "R$ "+Number(card.dataset.salario).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 });
 
 // ── TAREFA 03 ─────────────────────────────────────────────────
@@ -40,20 +40,20 @@ cards.forEach(card => {
 // Ativo: textContent="Ativo" | Inativo: textContent="Inativo"
 cards.forEach(card => {
   const statusEl = card.querySelector(".colab-status");
-  const ativo    = card.dataset.PREENCHA_AQUI;
-  statusEl.textContent = ativo === "true" ? PREENCHA_AQUI : PREENCHA_AQUI;
-  statusEl.setAttribute("data-ativo", PREENCHA_AQUI);
+  const ativo    = card.dataset.ativo;
+  statusEl.textContent = ativo === "true" ? "Ativo" : "Inativo";
+  statusEl.setAttribute("data-ativo", ativo);
 });
 
 // ── TAREFA 04 ─────────────────────────────────────────────────
 // Calcule e exiba nos stats: total, ativos, número de áreas únicas.
 // dica para áreas únicas: new Set(Array.from(cards).map(c => c.dataset.area)).size
 const total  = cards.length;
-const ativos = Array.from(cards).filter(c => c.dataset.ativo === PREENCHA_AQUI).length;
-const areas  = new Set(PREENCHA_AQUI).size;
-document.getElementById("stat-total").textContent  = PREENCHA_AQUI;
-document.getElementById("stat-ativos").textContent = PREENCHA_AQUI;
-document.getElementById("stat-areas").textContent  = PREENCHA_AQUI;
+const ativos = Array.from(cards).filter(c => c.dataset.ativo === "true").length;
+const areas  = new Set(Array.from(cards).map(c=> c.dataset.area)).size;
+document.getElementById("stat-total").textContent  = total;
+document.getElementById("stat-ativos").textContent = ativos;
+document.getElementById("stat-areas").textContent  = areas;
 
 // ── TAREFA 05 ─────────────────────────────────────────────────
 // Calcule a média salarial dos colaboradores ATIVOS.
@@ -61,14 +61,14 @@ document.getElementById("stat-areas").textContent  = PREENCHA_AQUI;
 // ✅ Seguro: todos os dados são internos (dataset numérico do script)
 const salarios = Array.from(cards)
   .filter(c => c.dataset.ativo === "true")
-  .map(c => PREENCHA_AQUI(c.dataset.salario));
+  .map(c => parseFloat(c.dataset.salario));
 const mediaSalarial = salarios.reduce((s, v) => s + v, 0) / salarios.length;
-const mediaBRL = PREENCHA_AQUI.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+const mediaBRL = mediaSalarial.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
 document.getElementById("relatorio-rh").innerHTML =
   `RH Germinare · Total: <strong>${total}</strong> · ` +
   `Ativos: <strong>${ativos}</strong> · ` +
   `Áreas: <strong>${areas}</strong> · ` +
-  `Média salarial (ativos): <strong>${PREENCHA_AQUI}</strong>`;
+  `Média salarial (ativos): <strong>${mediaBRL}</strong>`;
 
 console.log("═══ Verificação Ex03 ═══");
 console.log("Card germ-001 cargo:", document.querySelector("[data-id='germ-001'] .colab-cargo").textContent);
