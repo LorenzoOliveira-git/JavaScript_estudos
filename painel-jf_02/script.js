@@ -31,47 +31,47 @@ const colaborador = {
 // Por quê textContent? O nome pode conter caracteres especiais — é dado externo.
 // dica: nomeEl.PREENCHA_AQUI = colaborador.nome;
 // ════════════════════════════════════════════════════════════════════════════════
-nomeEl.PREENCHA_AQUI = colaborador.nome;
+nomeEl.textContent = colaborador.nome;
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 02 — Atualize o saldoEl com o saldo usando textContent
 // dica: saldoEl.PREENCHA_AQUI = colaborador.saldo;
 // ════════════════════════════════════════════════════════════════════════════════
-saldoEl.PREENCHA_AQUI = colaborador.saldo;
+saldoEl.textContent = colaborador.saldo;
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 03 — Atualize o cargoEl com o cargo usando textContent
 // dica: cargoEl.PREENCHA_AQUI = colaborador.cargo;
 // ════════════════════════════════════════════════════════════════════════════════
-cargoEl.PREENCHA_AQUI = colaborador.cargo;
+cargoEl.textContent = colaborador.cargo;
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 04 — Leia o CNPJ do empresaEl com getAttribute e exiba no console
 // dica: empresaEl.PREENCHA_AQUI("data-cnpj")
 // ════════════════════════════════════════════════════════════════════════════════
-const cnpj = empresaEl.PREENCHA_AQUI("data-cnpj");
+const cnpj = empresaEl.getAttribute("data-cnpj");
 console.log("CNPJ:", cnpj); // → "60.701.190/0001-04"
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 05 — Leia o data-segmento com dataset (camelCase!) e exiba no console
 // dica: empresaEl.dataset.PREENCHA_AQUI
 // ════════════════════════════════════════════════════════════════════════════════
-const segmento = empresaEl.dataset.PREENCHA_AQUI;
+const segmento = empresaEl.dataset.segmento;
 console.log("Segmento:", segmento); // → "financeiro"
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 06 — Atualize data-ativo do statusEl para "false" via dataset
 // dica: statusEl.dataset.PREENCHA_AQUI = "false";
 // ════════════════════════════════════════════════════════════════════════════════
-statusEl.dataset.PREENCHA_AQUI = "false";
+statusEl.dataset.ativo = "false";
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 07 — Selecione todos os .item e exiba o textContent de cada um
 // dica: use querySelectorAll + forEach
 // ════════════════════════════════════════════════════════════════════════════════
-const itens = document.PREENCHA_AQUI(".item");
+const itens = document.querySelectAll(".item");
 itens.forEach(item => {
-  console.log("Produto:", item.PREENCHA_AQUI.trim());
+  console.log("Produto:", item.textContent.trim());
 });
 
 // ════════════════════════════════════════════════════════════════════════════════
@@ -80,7 +80,7 @@ itens.forEach(item => {
 // ════════════════════════════════════════════════════════════════════════════════
 itens.forEach(item => {
   const nomeProduto = item.textContent.trim();
-  const nomeEmpresa = item.dataset.PREENCHA_AQUI;
+  const nomeEmpresa = item.dataset.empresa;
   console.log(`Produto: ${nomeProduto} — Empresa: ${nomeEmpresa}`);
 });
 
@@ -89,7 +89,7 @@ itens.forEach(item => {
 // O HTML é gerado pelo SEU código (seguro) — não vem do usuário
 // dica: empresaEl.innerHTML = `<strong>...</strong><span class="cnpj">CNPJ: ${cnpj}</span>`
 // ════════════════════════════════════════════════════════════════════════════════
-empresaEl.PREENCHA_AQUI = PREENCHA_AQUI;
+empresaEl.innerHTML = `<strong>...</strong><span class="cnpj">CNPJ: ${cnpj}</span>`;
 
 // ════════════════════════════════════════════════════════════════════════════════
 // TAREFA 10 — DEMONSTRAÇÃO XSS: textContent como defesa
@@ -97,7 +97,7 @@ empresaEl.PREENCHA_AQUI = PREENCHA_AQUI;
 // ════════════════════════════════════════════════════════════════════════════════
 const tentativaXSS = '<img src=x onerror="alert(\'HACKEADO!\')">';
 // ✅ Seguro: textContent escapa o HTML e exibe como texto literal
-statusEl.PREENCHA_AQUI = tentativaXSS;
+statusEl.textContent = tentativaXSS;
 // O alert NÃO deve disparar — a tag aparece como texto na tela
 
 // ── VERIFICAÇÃO FINAL (F12 → Console) ────────────────────────────────────────
