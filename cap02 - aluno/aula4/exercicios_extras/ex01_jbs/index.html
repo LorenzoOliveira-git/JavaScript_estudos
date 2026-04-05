@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JBS — Catálogo de Cortes</title>
+  <style>
+    :root {
+      --cor-primaria: #B91C1C;
+      --cor-secundaria: #FEF2F2;
+      --cor-acento:   #DC2626;
+      --cor-texto:    #1C1917;
+      --cor-muted:    #78716C;
+      --cor-borda:    #E7E5E4;
+      --radius:       0.5rem;
+      --sombra:       0 2px 8px rgba(0,0,0,0.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #FAFAF9; color: var(--cor-texto); min-height: 100vh; }
+    header { background: var(--cor-primaria); color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 4px solid #991B1B; }
+    header h1 { font-size: 1.4rem; }
+    header .badge { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.2rem 0.7rem; border-radius: 1rem; }
+    main { padding: 1.5rem 2rem; }
+    #status-catalogo { background: #FEF2F2; border-left: 4px solid var(--cor-acento); padding: 0.6rem 1rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--cor-primaria); border-radius: 0 var(--radius) var(--radius) 0; }
+    .secao-titulo { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cor-primaria); margin-bottom: 0.75rem; padding-bottom: 0.25rem; border-bottom: 2px solid var(--cor-primaria); display: inline-block; }
+    #catalogo-cortes { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card-corte { background: #fff; border-radius: var(--radius); box-shadow: var(--sombra); padding: 1.25rem; border-top: 3px solid var(--cor-primaria); transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .card-corte:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+    .card-corte h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+    .card-tipo { font-size: 0.85rem; color: var(--cor-muted); margin-bottom: 0.5rem; }
+    .card-preco { font-size: 1.2rem; font-weight: 700; color: var(--cor-primaria); }
+    .card-peso { font-size: 0.85rem; color: var(--cor-muted); }
+    .btn-add-carrinho { margin-top: 0.75rem; width: 100%; padding: 0.45rem; background: var(--cor-primaria); color: #fff; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 0.9rem; transition: background 0.15s; }
+    .btn-add-carrinho:hover { background: #991B1B; }
+    .btn-add-carrinho:focus-visible { outline: 3px solid var(--cor-acento); outline-offset: 2px; }
+    #area-destaque { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .card-corte[data-id$="-destaque"] { border-top-color: #D97706; max-width: 260px; }
+    @media (max-width: 600px) {
+      header { flex-direction: column; align-items: flex-start; }
+      main { padding: 1rem; }
+      #catalogo-cortes { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>JBS — Catálogo de Cortes</h1>
+    <span class="badge">Instituto J&amp;F — Escola de Tecnologia</span>
+    <span class="badge">DAD 2026 — Exercício 01</span>
+  </header>
+  <main>
+    <div id="status-catalogo" aria-live="polite">Carregando catálogo de cortes JBS...</div>
+
+    <section aria-labelledby="titulo-destaque">
+      <p class="secao-titulo" id="titulo-destaque">Corte em Destaque</p>
+      <div id="area-destaque" role="list" aria-label="Corte em destaque"></div>
+    </section>
+
+    <br>
+    <section aria-labelledby="titulo-catalogo">
+      <p class="secao-titulo" id="titulo-catalogo">Todos os Cortes</p>
+      <div id="catalogo-cortes" role="list" aria-label="Catálogo de cortes JBS"></div>
+    </section>
+  </main>
+  <script src="aluno.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigor — Painel de Pedidos</title>
+  <style>
+    :root {
+      --cor-primaria:  #7C3AED;
+      --cor-secundaria:#F5F3FF;
+      --cor-acento:    #8B5CF6;
+      --cor-verde:     #15803D;
+      --cor-amber:     #B45309;
+      --cor-red:       #B91C1C;
+      --cor-texto:     #1E1B4B;
+      --cor-muted:     #6B7280;
+      --cor-borda:     #DDD6FE;
+      --radius:        0.5rem;
+      --sombra:        0 2px 8px rgba(0,0,0,0.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #FAF5FF; color: var(--cor-texto); min-height: 100vh; }
+    header { background: var(--cor-primaria); color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 4px solid #6D28D9; }
+    header h1 { font-size: 1.4rem; }
+    .badge { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.2rem 0.7rem; border-radius: 1rem; }
+    main { padding: 1.5rem 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    @media (max-width: 700px) { main { grid-template-columns: 1fr; } header { flex-direction: column; align-items: flex-start; } }
+    .painel { background: #fff; border-radius: var(--radius); box-shadow: var(--sombra); padding: 1rem; }
+    .painel h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cor-primaria); margin-bottom: 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--cor-acento); }
+    #lista-pendentes, #lista-entregues { display: flex; flex-direction: column; gap: 0.6rem; min-height: 80px; }
+    .card-pedido { background: var(--cor-secundaria); border-radius: var(--radius); padding: 0.85rem 1rem; border-left: 4px solid var(--cor-primaria); display: flex; justify-content: space-between; align-items: flex-start; transition: transform 0.12s; }
+    .card-pedido:hover { transform: translateX(2px); }
+    .card-pedido[data-status="entregue"] { border-left-color: var(--cor-verde); background: #F0FDF4; opacity: 0.8; }
+    .pedido-info p { margin-bottom: 0.2rem; }
+    .pedido-nome { font-weight: 600; font-size: 0.95rem; }
+    .pedido-qtd  { font-size: 0.85rem; color: var(--cor-muted); }
+    .pedido-total { font-size: 1rem; font-weight: 700; color: var(--cor-primaria); white-space: nowrap; }
+    .pedido-acoes { display: flex; flex-direction: column; gap: 0.3rem; margin-left: 1rem; }
+    .btn-entregar, .btn-cancelar { padding: 0.3rem 0.6rem; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 0.8rem; transition: background 0.12s; }
+    .btn-entregar { background: var(--cor-verde); color: #fff; }
+    .btn-entregar:hover { background: #166534; }
+    .btn-cancelar { background: #FEE2E2; color: var(--cor-red); border: 1px solid #FCA5A5; }
+    .btn-cancelar:hover { background: #FCA5A5; }
+    .btn-entregar:focus-visible, .btn-cancelar:focus-visible { outline: 3px solid var(--cor-acento); outline-offset: 2px; }
+    #resumo { grid-column: 1 / -1; background: #fff; border-radius: var(--radius); box-shadow: var(--sombra); padding: 1rem; color: var(--cor-primaria); font-weight: 600; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Vigor — Painel de Pedidos</h1>
+    <span class="badge">Instituto J&amp;F — Escola de Tecnologia</span>
+    <span class="badge">DAD 2026 — Exercício 05</span>
+  </header>
+  <main>
+    <div id="resumo" aria-live="polite">Carregando painel de pedidos Vigor...</div>
+
+    <section class="painel" aria-labelledby="titulo-pendentes">
+      <h2 id="titulo-pendentes">Pedidos Pendentes</h2>
+      <div id="lista-pendentes" role="list" aria-label="Pedidos pendentes"></div>
+    </section>
+
+    <section class="painel" aria-labelledby="titulo-entregues">
+      <h2 id="titulo-entregues">Pedidos Entregues</h2>
+      <div id="lista-entregues" role="list" aria-label="Pedidos entregues"></div>
+    </section>
+  </main>
+  <script src="aluno.js"></script>
+</body>
+</html>
