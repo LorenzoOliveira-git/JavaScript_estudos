@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flora — Catálogo de Produtos</title>
+  <style>
+    :root {
+      --cor-primaria:  #065F46;
+      --cor-secundaria:#ECFDF5;
+      --cor-acento:    #10B981;
+      --cor-texto:     #064E3B;
+      --cor-muted:     #6B7280;
+      --cor-borda:     #D1FAE5;
+      --radius:        0.5rem;
+      --sombra:        0 2px 8px rgba(0,0,0,0.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #F0FDF4; color: var(--cor-texto); min-height: 100vh; }
+    header { background: var(--cor-primaria); color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 4px solid #047857; }
+    header h1 { font-size: 1.4rem; }
+    .badge { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.2rem 0.7rem; border-radius: 1rem; }
+    main { padding: 1.5rem 2rem; }
+    #status-flora { background: var(--cor-secundaria); border-left: 4px solid var(--cor-acento); padding: 0.7rem 1rem; margin-bottom: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; color: var(--cor-primaria); font-size: 0.95rem; }
+    .secao-titulo { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cor-primaria); margin-bottom: 0.75rem; padding-bottom: 0.25rem; border-bottom: 2px solid var(--cor-acento); display: inline-block; }
+    #lancamentos { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    #catalogo-flora { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .card-produto { background: #fff; border-radius: var(--radius); box-shadow: var(--sombra); padding: 1.25rem; border-top: 3px solid var(--cor-acento); transition: transform 0.15s, box-shadow 0.15s; }
+    .card-produto:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+    .card-produto h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .card-linha { font-size: 0.85rem; color: var(--cor-muted); margin-bottom: 0.3rem; }
+    .card-volume { font-size: 0.85rem; color: var(--cor-muted); }
+    .card-preco { font-size: 1.15rem; font-weight: 700; color: var(--cor-primaria); margin-top: 0.4rem; }
+    .btn-comprar { margin-top: 0.75rem; width: 100%; padding: 0.45rem; background: var(--cor-primaria); color: #fff; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 0.9rem; transition: background 0.15s; }
+    .btn-comprar:hover { background: #047857; }
+    .btn-comprar:focus-visible { outline: 3px solid var(--cor-acento); outline-offset: 2px; }
+    #lancamentos .card-produto { border-top-color: #7C3AED; max-width: 260px; }
+    @media (max-width: 600px) { header { flex-direction: column; align-items: flex-start; } main { padding: 1rem; } #catalogo-flora { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Flora — Catálogo de Produtos</h1>
+    <span class="badge">Instituto J&amp;F — Escola de Tecnologia</span>
+    <span class="badge">DAD 2026 — Exercício 04</span>
+  </header>
+  <main>
+    <div id="status-flora" aria-live="polite">Carregando catálogo Flora...</div>
+
+    <section aria-labelledby="titulo-lanc">
+      <p class="secao-titulo" id="titulo-lanc">Lançamento em Destaque</p>
+      <div id="lancamentos" role="list" aria-label="Produto em lançamento"></div>
+    </section>
+
+    <section aria-labelledby="titulo-catalogo">
+      <p class="secao-titulo" id="titulo-catalogo">Catálogo Flora</p>
+      <div id="catalogo-flora" role="list" aria-label="Catálogo de produtos Flora"></div>
+    </section>
+  </main>
+  <script src="aluno.js"></script>
+</body>
+</html>

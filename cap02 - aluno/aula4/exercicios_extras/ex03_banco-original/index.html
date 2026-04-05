@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco Original — Dashboard de Transações</title>
+  <style>
+    :root {
+      --cor-primaria: #1D4ED8;
+      --cor-positivo: #15803D;
+      --cor-negativo: #B91C1C;
+      --cor-neutro:   #92400E;
+      --cor-bg:       #F8FAFC;
+      --cor-card:     #FFFFFF;
+      --cor-texto:    #0F172A;
+      --cor-muted:    #64748B;
+      --cor-borda:    #E2E8F0;
+      --radius:       0.5rem;
+      --sombra:       0 2px 8px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--cor-bg); color: var(--cor-texto); min-height: 100vh; }
+    header { background: var(--cor-primaria); color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 4px solid #1E40AF; }
+    header h1 { font-size: 1.4rem; }
+    .badge { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.2rem 0.7rem; border-radius: 1rem; }
+    main { padding: 1.5rem 2rem; }
+    #saldo-total { background: #EFF6FF; border-left: 4px solid var(--cor-primaria); padding: 0.75rem 1rem; margin-bottom: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--cor-primaria); font-weight: 600; }
+    .secao-titulo { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cor-primaria); margin-bottom: 0.75rem; padding-bottom: 0.25rem; border-bottom: 2px solid var(--cor-primaria); display: inline-block; }
+    #ultimas-transacoes { margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    #lista-transacoes { display: flex; flex-direction: column; gap: 0.75rem; max-width: 720px; }
+    .card-transacao { background: var(--cor-card); border-radius: var(--radius); box-shadow: var(--sombra); padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid transparent; transition: transform 0.12s, box-shadow 0.12s; }
+    .card-transacao:hover { transform: translateX(3px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .card-transacao[data-tipo="credito"]  { border-left-color: var(--cor-positivo); }
+    .card-transacao[data-tipo="debito"]   { border-left-color: var(--cor-negativo); }
+    .card-transacao[data-tipo="transfer"] { border-left-color: var(--cor-neutro); }
+    .transacao-desc  { font-weight: 600; font-size: 0.95rem; }
+    .transacao-data  { font-size: 0.85rem; color: var(--cor-muted); margin-top: 0.15rem; }
+    .transacao-valor { font-size: 1.1rem; font-weight: 700; }
+    .transacao-valor.positivo { color: var(--cor-positivo); }
+    .transacao-valor.negativo { color: var(--cor-negativo); }
+    .btn-remover { margin-left: 1rem; padding: 0.3rem 0.7rem; background: #FEE2E2; color: var(--cor-negativo); border: 1px solid #FCA5A5; border-radius: 0.3rem; cursor: pointer; font-size: 0.85rem; transition: background 0.12s; }
+    .btn-remover:hover { background: #FCA5A5; }
+    .btn-remover:focus-visible { outline: 3px solid var(--cor-negativo); outline-offset: 2px; }
+    #ultimas-transacoes .card-transacao { border: 2px solid var(--cor-neutro); max-width: 320px; }
+    @media (max-width: 600px) { header { flex-direction: column; align-items: flex-start; } main { padding: 1rem; } }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Banco Original — Dashboard</h1>
+    <span class="badge">Instituto J&amp;F — Escola de Tecnologia</span>
+    <span class="badge">DAD 2026 — Exercício 03</span>
+  </header>
+  <main>
+    <div id="saldo-total" aria-live="polite">Calculando saldo...</div>
+
+    <section aria-labelledby="titulo-recentes">
+      <p class="secao-titulo" id="titulo-recentes">Transação Recente (clone)</p>
+      <div id="ultimas-transacoes" role="list" aria-label="Transação recente em destaque"></div>
+    </section>
+
+    <br>
+    <section aria-labelledby="titulo-extrato">
+      <p class="secao-titulo" id="titulo-extrato">Extrato — Últimas Transações</p>
+      <div id="lista-transacoes" role="list" aria-label="Extrato de transações Banco Original"></div>
+    </section>
+  </main>
+  <script src="aluno.js"></script>
+</body>
+</html>

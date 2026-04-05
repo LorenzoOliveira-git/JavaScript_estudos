@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seara — Cardápio do Restaurante Corporativo</title>
+  <style>
+    :root {
+      --cor-primaria:  #0C4A6E;
+      --cor-secundaria:#F0F9FF;
+      --cor-acento:    #0EA5E9;
+      --cor-verde:     #15803D;
+      --cor-texto:     #0F172A;
+      --cor-muted:     #475569;
+      --cor-borda:     #CBD5E1;
+      --radius:        0.5rem;
+      --sombra:        0 2px 8px rgba(0,0,0,0.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #F8FAFC; color: var(--cor-texto); min-height: 100vh; }
+    header { background: var(--cor-primaria); color: #fff; padding: 1rem 2rem; display: flex; align-items: center; gap: 1rem; border-bottom: 4px solid #075985; }
+    header h1 { font-size: 1.4rem; }
+    .badge { font-size: 0.85rem; background: rgba(255,255,255,0.2); padding: 0.2rem 0.7rem; border-radius: 1rem; }
+    main { padding: 1.5rem 2rem; }
+    .aviso-dia { background: var(--cor-secundaria); border-left: 4px solid var(--cor-acento); padding: 0.75rem 1rem; margin-bottom: 1.5rem; border-radius: 0 var(--radius) var(--radius) 0; font-size: 0.95rem; color: var(--cor-primaria); }
+    .secao-titulo { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cor-primaria); margin-bottom: 0.75rem; padding-bottom: 0.25rem; border-bottom: 2px solid var(--cor-acento); display: inline-block; }
+    #prato-dia { margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    #cardapio-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+    .card-prato { background: #fff; border-radius: var(--radius); box-shadow: var(--sombra); padding: 1.25rem; border-top: 3px solid var(--cor-acento); transition: transform 0.15s, box-shadow 0.15s; }
+    .card-prato:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.13); }
+    .card-prato h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .card-categoria { font-size: 0.85rem; color: var(--cor-muted); margin-bottom: 0.4rem; }
+    .card-calorias { font-size: 0.85rem; color: var(--cor-verde); font-weight: 600; }
+    .card-preco { font-size: 1.15rem; font-weight: 700; color: var(--cor-primaria); margin-top: 0.4rem; }
+    .btn-pedir { margin-top: 0.75rem; width: 100%; padding: 0.45rem; background: var(--cor-primaria); color: #fff; border: none; border-radius: 0.3rem; cursor: pointer; font-size: 0.9rem; transition: background 0.15s; }
+    .btn-pedir:hover { background: #075985; }
+    .btn-pedir:focus-visible { outline: 3px solid var(--cor-acento); outline-offset: 2px; }
+    #prato-dia .card-prato { border-top-color: #D97706; max-width: 280px; }
+    @media (max-width: 600px) { header { flex-direction: column; align-items: flex-start; } main { padding: 1rem; } #cardapio-lista { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <h1>Seara — Restaurante Corporativo</h1>
+    <span class="badge">Instituto J&amp;F — Escola de Tecnologia</span>
+    <span class="badge">DAD 2026 — Exercício 02</span>
+  </header>
+  <main>
+    <div class="aviso-dia" id="aviso-dia" aria-live="polite">Carregando cardápio do dia...</div>
+
+    <section aria-labelledby="titulo-prato-dia">
+      <p class="secao-titulo" id="titulo-prato-dia">Prato do Dia</p>
+      <div id="prato-dia" role="list" aria-label="Prato do dia"></div>
+    </section>
+
+    <br>
+    <section aria-labelledby="titulo-cardapio">
+      <p class="secao-titulo" id="titulo-cardapio">Cardápio Completo</p>
+      <div id="cardapio-lista" role="list" aria-label="Cardápio completo Seara"></div>
+    </section>
+  </main>
+  <script src="aluno.js"></script>
+</body>
+</html>

@@ -69,7 +69,7 @@ statusEl.dataset.ativo = "false";
 // TAREFA 07 — Selecione todos os .item e exiba o textContent de cada um
 // dica: use querySelectorAll + forEach
 // ════════════════════════════════════════════════════════════════════════════════
-const itens = document.querySelectAll(".item");
+const itens = document.querySelectorAll(".item");
 itens.forEach(item => {
   console.log("Produto:", item.textContent.trim());
 });
